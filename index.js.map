@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "sources": [
+    "node_modules/browser-pack/_prelude.js",
+    "index.babel.js",
+    "node_modules/grimoirejs/ref/index.js"
+  ],
+  "names": [],
+  "mappings": "AAAA;;;ACAA,IAAM,KAAK,QAAQ,YAAR,EAAsB,OAAjC;;AAEA,GAAG,iBAAH,CAAqB,MAArB,EAA6B;AAC3B,cAAY;AACV,WAAO;AACL,oBAAc,OADT;AAEL,iBAAW;AAFN;AADG,GADe;AAO3B,QAP2B,oBAOlB;AACP,QAAM,OAAO,KAAK,IAAL,CAAU,YAAV,CAAuB,cAAvB,EAAuC,SAAvC,CAAiD,IAA9D;AACA,SAAK,IAAL,CAAU,MAAV,6BACc,KAAK,MADnB,wBAEW,KAAK,QAAL,CAAc,YAAd,CAA2B,KAAK,QAAhC,EAA0C,YAA1C,CAAuD,GAAvD,EAA4D,WAA5D,CAAwE,GAAxE,CAA4E,UAAC,CAAD;AAAA,aAAO,KAAK,GAAL,CAAS,CAAT,CAAP;AAAA,KAA5E,EAAgG,IAAhG,CAAqG,GAArG,CAFX,+CAIW,KAAK,QAAL,CAAc,OAAd,EAAuB,QAAvB,EAJX;AAOD;AAhB0B,CAA7B;;;ACFA;AACA;AACA",
+  "file": "generated.js",
+  "sourceRoot": "",
+  "sourcesContent": [
+    "(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\"function\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\"Cannot find module '\"+o+\"'\");throw f.code=\"MODULE_NOT_FOUND\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\"function\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})",
+    "const gr = require('grimoirejs').default;\n\ngr.registerComponent('AABB', {\n  attributes: {\n    color: {\n      defaultValue: 'black',\n      converter: 'Color3',\n    },\n  },\n  $mount() {\n    const aabb = this.node.getComponent('MeshRenderer')._geometry.aabb;\n    this.node.append(`<mesh\n      position=\"${aabb.Center}\"\n      scale=\"${aabb.pointLBF.subtractWith(aabb.pointRTN).multiplyWith(0.5).rawElements.map((v) => Math.abs(v)).join(',')}\"\n      geometry=\"cube\"\n      color=\"${this.getValue('color').toString()}\"\n      targetBuffer=\"wireframe\"\n      />`);\n  },\n});\n",
+    "\tObject.defineProperty(exports, \"__esModule\", {\n\t    value: true\n\t});exports.default=window.GrimoireJS;"
+  ]
+}
